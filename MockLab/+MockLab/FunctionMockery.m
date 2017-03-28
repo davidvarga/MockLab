@@ -6,7 +6,7 @@ classdef FunctionMockery < handle
         FunctionMocks = {};
     end
     
-    properties(Access = private, Constant)
+    properties(Constant)
         ROOT_DIR_NAME = ['com', filesep(), 'github', filesep(), 'davidvarga', filesep(), 'mocklab', filesep(), 'functionMockery'];
         APPDATA_NAME = 'com_github_davidvarga_mocklab_functionmockery';
     end
