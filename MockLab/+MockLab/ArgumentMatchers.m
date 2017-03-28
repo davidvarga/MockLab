@@ -19,10 +19,7 @@ classdef ArgumentMatchers < handle
             argMatcher = MockLab.Matchers.AnyFloat();
         end
         
-        function argMatcher = anyInt()
-            argMatcher = MockLab.Matchers.AnyInt();
-        end
-        
+
         function argMatcher = anyInteger()
             argMatcher = MockLab.Matchers.AnyInteger();
         end

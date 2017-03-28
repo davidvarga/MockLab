@@ -1,28 +1,12 @@
-classdef AnyString < MockLab.Matchers.ArgumentMatcher
+classdef AnyString < MockLab.Matchers.AnyMatcherBase
     %ANYSTRING Summary of this class goes here
     %   Detailed explanation goes here
     
-    methods
-        
-        
-        function matcherResult = match(obj, args)
-            
-            if numel(args) >= 1
-                if numel(args) >= 2
-                    remArgs = args(2:end);
-                else
-                    remArgs = {};
-                end
-                
-                matcherResult = MockLab.Matchers.ArgumentMatcherResult(ischar(args{1}), remArgs);
-                
-            else
-                matcherResult = MockLab.Matchers.ArgumentMatcherResult(false, {});
-            end
-            
-            
+   methods (Access = protected)
+        function match = compareType(obj, arg)
+            match = ischar(arg);
         end
-    end
+    end 
     
 end
 
