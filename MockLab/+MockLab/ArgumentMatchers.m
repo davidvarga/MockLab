@@ -28,10 +28,6 @@ classdef ArgumentMatchers < handle
             argMatcher = MockLab.Matchers.AnyLogical();
         end
         
-        function argMatcher = anyMatrix()
-            argMatcher = MockLab.Matchers.AnyMatrix();
-        end
-        
         function argMatcher = anyNumber()
             argMatcher = MockLab.Matchers.AnyNumber();
         end

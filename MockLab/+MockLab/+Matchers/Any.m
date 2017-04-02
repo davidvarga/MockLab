@@ -16,23 +16,31 @@ classdef Any < MockLab.Matchers.ArgumentMatcher
         end
         
         
-        function matcherResult = match(obj, args)
+        function matcherResult = match(obj, arguments)
             
-            if isempty(args)
+            remArgs = arguments;
+            if numel(arguments) < 1
                 matcherResult = MockLab.Matchers.ArgumentMatcherResult(false, {});
-                return;
-            end
-            remArgs = {};
-            if numel(args) > 1
-                remArgs = args(2:end);
-            end
-            
-            if isempty(strtrim(obj.NeededType))
-                % Any without type
-                matcherResult = MockLab.Matchers.ArgumentMatcherResult(true, remArgs);
             else
-                matcherResult = MockLab.Matchers.ArgumentMatcherResult(isa(args{1}, obj.NeededType), remArgs);
+                if isempty(strtrim(obj.NeededType))
+                    % Any without type
+                    matches = true;
+                else
+                    matches = isa(arguments{1}, obj.NeededType);
+                end
+
+                if matches
+                    if numel(arguments) >= 2
+                        remArgs = arguments(2:end);
+                    else
+                        remArgs = {};
+                    end
+                end
+                
+                matcherResult = MockLab.Matchers.ArgumentMatcherResult(matches, remArgs);
             end
+
+            
         end
     end
     

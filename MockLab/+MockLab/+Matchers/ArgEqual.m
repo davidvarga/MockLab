@@ -13,15 +13,18 @@ classdef ArgEqual < MockLab.Matchers.ArgumentMatcher
         end
         
         function matcherResult = match(obj, arguments)
+            remArgs = arguments;
             if numel(arguments) < 1
                 matcherResult = MockLab.Matchers.ArgumentMatcherResult(false, {});
             else
                 matches = isequal(arguments{1}, obj.ArgumentValue);
                 
-                if numel(arguments) >= 2
-                    remArgs = arguments(2:end);
-                else
-                    remArgs = {};
+                if matches
+                    if numel(arguments) >= 2
+                        remArgs = arguments(2:end);
+                    else
+                        remArgs = {};
+                    end
                 end
                 
                 matcherResult = MockLab.Matchers.ArgumentMatcherResult(matches, remArgs);
