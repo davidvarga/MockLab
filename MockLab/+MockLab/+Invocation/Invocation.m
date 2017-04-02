@@ -2,12 +2,11 @@ classdef Invocation < handle
     %INVOCATION Summary of this class goes here
     %   Detailed explanation goes here
     
-    properties
+    properties (Access = private)
         MethodName;
         ArgumentList;
         TimeStamp;
         Verified = false;
-        
     end
     
     methods
@@ -57,7 +56,7 @@ classdef Invocation < handle
                 end
             end
             
-            answ = answ && isempty(args);    
+            answ = answ && isempty(args);
         end
         
         function verified = isVerified(obj)
