@@ -1,6 +1,5 @@
 classdef FunctionMockeryTest < matlab.unittest.TestCase
-    %FUNCTIONMOCKERY_TEST Summary of this class goes here
-    %   Detailed explanation goes here
+    % Tests Mocklab.FunctionMockery.
     
     properties
         TestDataPath;
@@ -10,8 +9,6 @@ classdef FunctionMockeryTest < matlab.unittest.TestCase
         function setup(self)
             self.TestDataPath = fullfile(fileparts(mfilename('fullpath')), 'testdata');
             addpath(self.TestDataPath);
-            % comment
-            % testCase.TestFigure = figure;
         end
     end
     
@@ -46,7 +43,6 @@ classdef FunctionMockeryTest < matlab.unittest.TestCase
             delete(fm);
             assert(numel(strfind(which(fcnName), rootDir)) == 0, 'FunctionMockery was not cleaned-up correctly');
         end
-        
         
         
     end

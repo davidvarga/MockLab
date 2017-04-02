@@ -30,6 +30,10 @@ classdef ArgEqual < MockLab.Matchers.ArgumentMatcher
                 matcherResult = MockLab.Matchers.ArgumentMatcherResult(matches, remArgs);
             end
         end
+        
+        function val = getArgumentValue(obj)
+           val = obj.ArgumentValue;
+        end
     end
     
 end

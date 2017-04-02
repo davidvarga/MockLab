@@ -3,7 +3,7 @@ classdef ArgumentMatcherList < handle
     %   Detailed explanation goes here
     
     properties (Access = private)
-        ArgumentMatchers;
+        ArgumentMatchers = {};
     end
     
     methods
@@ -21,8 +21,6 @@ classdef ArgumentMatcherList < handle
                 
                 obj.ArgumentMatchers{end+1} = matcher;
             end
-            
-            
         end
         
         function argumentMatchers = getArgumentMatchers(obj)
